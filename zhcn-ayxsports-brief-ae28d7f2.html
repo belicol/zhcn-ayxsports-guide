@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>爱游戏体育 · 专题介绍</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: linear-gradient(145deg, #f9e3b6 0%, #f5cbaa 40%, #f0b98d 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1.25rem;
+      line-height: 1.7;
+      color: #2e241e;
+    }
+
+    .page {
+      max-width: 1120px;
+      width: 100%;
+    }
+
+    /* 主卡片容器 */
+    .magazine-card {
+      background: #fffffffa;
+      backdrop-filter: blur(2px);
+      border-radius: 48px 48px 36px 36px;
+      box-shadow: 0 20px 40px -12px rgba(100, 60, 30, 0.35), 0 8px 20px rgba(0, 0, 0, 0.08);
+      padding: 2.8rem 2.5rem 2.5rem;
+      transition: box-shadow 0.2s;
+    }
+
+    /* 横幅区 hero */
+    .hero {
+      text-align: center;
+      padding-bottom: 2.2rem;
+      border-bottom: 1px solid #f0dac8;
+      margin-bottom: 2.4rem;
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #b45f2a, #894e2c);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 0.25rem;
+    }
+
+    .hero .sub {
+      font-size: 1.2rem;
+      color: #6b4d3b;
+      background: #f6e3d2;
+      display: inline-block;
+      padding: 0.2rem 1.8rem;
+      border-radius: 40px;
+      font-weight: 490;
+      margin-top: 0.3rem;
+      letter-spacing: 0.3px;
+    }
+
+    .hero p {
+      max-width: 650px;
+      margin: 0.9rem auto 0;
+      font-size: 1.05rem;
+      color: #4e3c30;
+    }
+
+    /* 背景说明摘要 */
+    .bg-note {
+      background: #fcf4eb;
+      border-radius: 28px;
+      padding: 1.6rem 2rem;
+      margin-bottom: 2.4rem;
+      border-left: 6px solid #d99b6c;
+    }
+
+    .bg-note p {
+      font-size: 1.02rem;
+      color: #3d2d22;
+    }
+
+    .bg-note strong {
+      color: #8f562d;
+      font-weight: 600;
+    }
+
+    /* 三段自然介绍 —— 采用杂志卡片列 */
+    .intro-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.8rem;
+      margin-bottom: 2.2rem;
+    }
+
+    .intro-item {
+      background: #fef9f4;
+      border-radius: 32px;
+      padding: 1.6rem 1.4rem 1.8rem;
+      box-shadow: 0 4px 10px rgba(140, 80, 30, 0.06);
+      transition: transform 0.15s ease, box-shadow 0.15s;
+    }
+
+    .intro-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 20px -8px rgba(120, 60, 20, 0.15);
+    }
+
+    .intro-item h3 {
+      font-size: 1.35rem;
+      font-weight: 590;
+      color: #734b2e;
+      margin-bottom: 0.6rem;
+      border-left: 5px solid #dba074;
+      padding-left: 0.9rem;
+    }
+
+    .intro-item p {
+      font-size: 0.98rem;
+      color: #3d3026;
+      margin-bottom: 0.4rem;
+    }
+
+    .intro-item .tag {
+      display: inline-block;
+      background: #e6cfb9;
+      font-size: 0.75rem;
+      padding: 0.2rem 1rem;
+      border-radius: 30px;
+      color: #4f311e;
+      font-weight: 500;
+      letter-spacing: 0.3px;
+      margin-top: 0.3rem;
+    }
+
+    /* 特点/场景摘要卡片 (FAQ风格) */
+    .feature-faq {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      background: #fcf1e6;
+      border-radius: 36px;
+      padding: 1.6rem 1.8rem;
+      margin-bottom: 2.2rem;
+      justify-content: center;
+    }
+
+    .feature-faq span {
+      background: white;
+      padding: 0.4rem 1.2rem;
+      border-radius: 60px;
+      font-size: 0.9rem;
+      font-weight: 470;
+      color: #543b28;
+      box-shadow: 0 2px 6px rgba(150, 80, 30, 0.06);
+      white-space: nowrap;
+      border: 1px solid #eddccc;
+    }
+
+    .feature-faq span::before {
+      content: "▸ ";
+      color: #b77547;
+      font-weight: 600;
+    }
+
+    /* 页尾访问提示 (句子内嵌链接) */
+    .footer-visit {
+      background: #f2e0d0;
+      border-radius: 60px;
+      padding: 1.4rem 2rem;
+      text-align: center;
+      font-size: 1.08rem;
+      color: #2d1f15;
+      box-shadow: inset 0 1px 0 #fff4e8;
+      border: 1px solid #edd2bb;
+    }
+
+    .footer-visit a {
+      color: #844f28;
+      font-weight: 600;
+      text-decoration: none;
+      border-bottom: 2px solid #dba074;
+      padding-bottom: 0.08rem;
+      transition: border 0.15s, background 0.1s;
+      border-radius: 4px;
+      background: transparent;
+      display: inline-block;
+      line-height: 1.3;
+    }
+
+    .footer-visit a:hover {
+      border-bottom-color: #aa6d3b;
+      background: #f7e4d1;
+      padding: 0 0.1rem;
+    }
+
+    /* 小字 / 粒度 */
+    .meta-note {
+      margin-top: 1.8rem;
+      font-size: 0.82rem;
+      color: #6f5846;
+      text-align: center;
+      opacity: 0.7;
+      letter-spacing: 0.2px;
+    }
+
+    /* 响应式 */
+    @media (max-width: 820px) {
+      .magazine-card {
+        padding: 2rem 1.6rem;
+        border-radius: 32px;
+      }
+
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+
+      .intro-grid {
+        grid-template-columns: 1fr;
+        gap: 1.4rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      body {
+        padding: 1.2rem 0.9rem;
+      }
+      .magazine-card {
+        padding: 1.5rem 1rem;
+        border-radius: 28px;
+      }
+      .hero h1 {
+        font-size: 1.9rem;
+      }
+      .hero .sub {
+        font-size: 1rem;
+        padding: 0.1rem 1rem;
+      }
+      .bg-note {
+        padding: 1rem 1.2rem;
+      }
+      .feature-faq span {
+        white-space: normal;
+        font-size: 0.82rem;
+        padding: 0.25rem 0.9rem;
+      }
+      .footer-visit {
+        font-size: 0.95rem;
+        padding: 1rem 0.5rem;
+        border-radius: 40px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="magazine-card">
+
+      <!-- 首页横幅 -->
+      <div class="hero">
+        <h1>爱游戏体育</h1>
+        <div class="sub">运动 · 竞智 · 视野</div>
+        <p>专注体育资讯与赛事动态，为活跃用户提供清晰的信息入口。版面简洁，内容聚焦，快速定位所需内容。</p>
+      </div>
+
+      <!-- 背景说明 -->
+      <div class="bg-note">
+        <p><strong>关于爱游戏体育</strong> —— 平台定位为综合性体育信息聚合站，涵盖国内外联赛、选手动态、战术分析和社区讨论。界面设计遵循直觉化浏览逻辑，减少冗余干扰，使新访客能在一分钟内了解网站主要用途：获取体育资讯、关注热门赛事、参与观点交流。</p>
+      </div>
+
+      <!-- 三段自然介绍（杂志卡片风格） -->
+      <div class="intro-grid">
+        <div class="intro-item">
+          <h3>信息密度</h3>
+          <p>每日更新多条快讯与深度短文，覆盖足球、篮球、网球、电竞等主流项目。分类标签清晰，支持按赛事或队伍快速筛选。</p>
+          <span class="tag">即时比分</span>
+        </div>
+        <div class="intro-item">
+          <h3>内容结构</h3>
+          <p>首页按时间线排列头条，同时设有专栏区域用于长文分析。社区板块鼓励理性讨论，用户可对赛事发表简短评价。</p>
+          <span class="tag">赛事前瞻</span>
+        </div>
+        <div class="intro-item">
+          <h3>使用场景</h3>
+          <p>适合赛前查看阵容情报、赛后复盘关键回合，也适合体育爱好者日常浏览以保持对行业动态的敏感度。</p>
+          <span class="tag">数据参考</span>
+        </div>
+      </div>
+
+      <!-- 特点 / 场景摘要 (类似FAQ摘要) -->
+      <div class="feature-faq">
+        <span>赛事日程</span>
+        <span>球队排名</span>
+        <span>转会流言</span>
+        <span>比赛录像</span>
+        <span>战术图解</span>
+        <span>多语言界面</span>
+      </div>
+
+      <!-- 页尾访问提示 —— 句子内嵌爱游戏体育链接 -->
+      <div class="footer-visit">
+        <p>若希望进一步探索赛事资讯与深度内容，可直接前往 <a href="https://zhcn-ayxsports.com.cn">爱游戏体育</a> 浏览完整版块。界面响应迅速，内容按需呈现。</p>
+      </div>
+
+      <div class="meta-note">
+        — 杂志专题 · 爱游戏体育介绍 —
+      </div>
+
+    </div><!-- magazine-card end -->
+  </div><!-- page end -->
+</body>
+</html>
