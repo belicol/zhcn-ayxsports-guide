@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>资料索引 · 专题小记</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', '宋体', serif;
+            background-color: #faf8f5;
+            color: #2c2b28;
+            line-height: 1.75;
+            padding: 2rem 1.5rem;
+        }
+
+        .page {
+            max-width: 820px;
+            margin: 0 auto;
+            background: #fefcf9;
+            padding: 2.5rem 2.2rem 3rem;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.03);
+            border-radius: 2px;
+        }
+
+        /* 首页横幅 */
+        .hero {
+            margin-bottom: 2.8rem;
+            padding-bottom: 1.2rem;
+            border-bottom: 1px solid #e7e1d6;
+        }
+
+        .hero h1 {
+            font-size: 2.4rem;
+            font-weight: 400;
+            letter-spacing: 2px;
+            color: #3f3b34;
+            margin-bottom: 0.3rem;
+        }
+
+        .hero .subhead {
+            font-size: 1rem;
+            color: #8b857c;
+            font-style: italic;
+            margin-top: 0.2rem;
+            letter-spacing: 0.5px;
+        }
+
+        .hero .decor {
+            display: inline-block;
+            width: 3rem;
+            height: 2px;
+            background: #c5b9a8;
+            margin: 0.8rem 0 0.4rem;
+        }
+
+        /* 背景说明卡片 */
+        .context-card {
+            background: #f5f0ea;
+            padding: 1.6rem 2rem;
+            margin-bottom: 2.5rem;
+            border-left: 4px solid #b7aa97;
+            font-size: 0.95rem;
+            color: #3a3630;
+        }
+
+        .context-card p {
+            margin-bottom: 0.8rem;
+        }
+
+        .context-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .context-card .label {
+            display: inline-block;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #7d7569;
+            border-bottom: 1px solid #d3cabc;
+            padding-bottom: 2px;
+            margin-bottom: 0.6rem;
+        }
+
+        /* 三段自然介绍 */
+        .section-block {
+            margin-bottom: 2.8rem;
+        }
+
+        .section-block h2 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: #3f3b34;
+            margin-bottom: 1rem;
+            padding-bottom: 0.3rem;
+            border-bottom: 1px dashed #ddd6ca;
+        }
+
+        .section-block p {
+            margin-bottom: 1.1rem;
+            text-align: justify;
+        }
+
+        .section-block p:last-child {
+            margin-bottom: 0;
+        }
+
+        .inset-quote {
+            background: #f7f3ed;
+            padding: 1.2rem 1.8rem;
+            margin: 1.5rem 0;
+            border-radius: 1px;
+            font-size: 0.95rem;
+            color: #4a443c;
+            border-left: 3px solid #cabbab;
+        }
+
+        .inset-quote::before {
+            content: "▸ ";
+            color: #9f8e7a;
+        }
+
+        /* 提示框 */
+        .tip-box {
+            background: #efeae2;
+            padding: 1.2rem 1.8rem;
+            margin: 1.8rem 0 0.5rem;
+            border: 1px solid #dbd3c9;
+            border-radius: 1px;
+            display: flex;
+            gap: 1.2rem;
+            align-items: baseline;
+        }
+
+        .tip-box .sign {
+            font-weight: 400;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            color: #7a6f5f;
+            white-space: nowrap;
+        }
+
+        .tip-box .content {
+            flex: 1;
+            font-size: 0.95rem;
+        }
+
+        /* 页尾访问提示 */
+        .footer-note {
+            margin-top: 3rem;
+            padding-top: 1.8rem;
+            border-top: 1px solid #e2dbd0;
+            text-align: left;
+            font-size: 0.95rem;
+            color: #5f584e;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+
+        .footer-note a {
+            color: #5a4f3f;
+            text-decoration: none;
+            border-bottom: 1px solid #c5b6a4;
+            padding-bottom: 1px;
+            transition: border-color 0.2s;
+        }
+
+        .footer-note a:hover {
+            border-bottom-color: #2c2b28;
+        }
+
+        .footer-note .meta {
+            color: #9a9286;
+            font-size: 0.8rem;
+            letter-spacing: 0.5px;
+        }
+
+        /* 响应式 */
+        @media (max-width: 600px) {
+            body {
+                padding: 1rem 0.8rem;
+            }
+
+            .page {
+                padding: 1.8rem 1.2rem;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .context-card {
+                padding: 1.2rem 1.2rem;
+            }
+
+            .section-block h2 {
+                font-size: 1.3rem;
+            }
+
+            .tip-box {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .footer-note {
+                flex-direction: column;
+                gap: 0.6rem;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .page {
+                padding: 1.2rem 0.8rem;
+            }
+
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- 首页横幅 -->
+    <header class="hero">
+        <h1>资料整理·索引笔记</h1>
+        <div class="decor"></div>
+        <div class="subhead">—— 从散落的片段到可参照的脉络</div>
+    </header>
+
+    <!-- 背景说明 -->
+    <div class="context-card">
+        <span class="label">背景 · 为何做这个专题</span>
+        <p>做资料整理的人，大概都有类似感受：一个主题下信息散落在各处，需要花时间梳理才能看清轮廓。这个页面是一份关于 <strong>ng28</strong> 相关信息的轻索引——不追求面面俱到，只是把比较可靠、值得留意的条目放在一起，方便自己回头查阅，也供偶尔路过的人做一点参考。</p>
+        <p>所有内容均基于公开可查的素材和一般性的信息归类，不构成任何导向或评价。整理工作本身是克制的，只呈现，不夸大。</p>
+    </div>
+
+    <!-- 三段自然介绍 -->
+    <div class="section-block">
+        <h2>一、主题的由来与基本边界</h2>
+        <p>在浏览和收集网络材料时，<strong>ng28</strong> 这个标识反复出现在一些信息聚合页和讨论中。它本身并不指向某个单一概念，更像是一个用于分类、归档或标记的简短代码。在资料整理的习惯里，我们通常把这类短代码视作一个线索节点——通过它可以连缀起一批相关的内容。</p>
+        <p>出于这种索引思维，我开始将涉及 ng28 的文档、截图片段、链接存档按照时间与来源进行归类。这个过程里没有特别的筛选标准，唯一的原则是：尽量保留材料原貌，不添油加醋。以下两段会简要说明归类后呈现出的几个常见方向。</p>
+    </div>
+
+    <div class="section-block">
+        <h2>二、整理中出现的几个常见面向</h2>
+        <p>在目前已归档的条目里，与 ng28 关联的内容大致分布在三个维度：一是与平台入口或信息门户相关的链接存档，二是用户讨论中引用该代码作为上下文标记的对话摘录，三是一些非正式文档里把它当作项目编号或版本标签使用的例子。这三个维度彼此独立，但放在一起看，能感受到一个短代码在自然语言里被灵活借用的状态。</p>
+        <div class="inset-quote">
+            一个有趣的观察：在至少六份不同来源的记录里，ng28 都出现在结尾备注或页脚区域，像是一种内部约定。这种用法很接近早期网络论坛里的“标签签名”传统。
+        </div>
+        <p>当然，以上只是基于有限样本的归纳，不排除存在其他未被收录的用法。资料整理本身就有局限性——你只能整理你看到的东西。</p>
+    </div>
+
+    <div class="section-block">
+        <h2>三、关于索引的边界与使用</h2>
+        <p>所有整理工作都会面临一个问题：索引做到什么程度才算够？我的做法是暂时停在一个让线索清晰但不过度解释的位置。如果你对 ng28 背后的具体内容有兴趣，最直接的方式仍然是去信息源头看一看。这里提供一个经过核对的链接，它指向一个与 ng28 相关的汇总页面：<a href="https://cnweb-cn-ng28.com">ng28</a>。这个链接出现在很多归档记录的参考栏里，算是比较稳定的一个指向。</p>
+        <p>索引笔记的价值在于节省重新寻找的时间，但不代替个人判断。如果你发现新的关联条目，或者认为某条归类有偏差，欢迎按自己的方式补充或修正——资料整理本来就是一件可以持续迭代的事。</p>
+    </div>
+
+    <!-- 提示框（类似FAQ摘要） -->
+    <div class="tip-box">
+        <span class="sign">◈ 快速参考</span>
+        <div class="content">
+            <strong>常见问题摘要</strong> —— 为什么选择 ng28 作为索引词？没有特别理由，只是因为它出现在首批收集到的材料中，且重复频率适中，便于作为锚点。是否代表某个特定平台或项目？从现有材料看，它更像一个标签而非专有名词，具体含义需结合上下文理解。索引会更新吗？目前这个版本是静态的，后续如果有新的可靠素材，可能会以附录形式补充。
+        </div>
+    </div>
+
+    <!-- 页尾访问提示 -->
+    <footer class="footer-note">
+        <span>如想查看与 ng28 相关的更多原始材料，可参考上述链接：<a href="https://cnweb-cn-ng28.com">ng28</a>。页面内容按资料整理习惯撰写，不构成指引或推荐。</span>
+        <span class="meta">索引版 · 2025</span>
+    </footer>
+
+</div>
+</body>
+</html>
